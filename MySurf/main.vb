@@ -11,7 +11,7 @@ Public Class main
         Dim appPath As String = Application.StartupPath
         'New Chromium settings
         Dim settings As New CSharpBrowserSettings
-        settings.UserAgent = ("MySurf 3.0 (Aplha 1) - Mozilla/5.0 (" & osversion & "; AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36")
+        settings.UserAgent = ("MySurf 3.0 (Alpha 1) - Mozilla/5.0 (" & osversion & "; AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36")
         'Initialize Chromium
         ChromeWebBrowser1.Initialize(settings)
         'Goes to homepage on startup
