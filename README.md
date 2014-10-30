@@ -6,6 +6,8 @@ MySurf web browser.
 
 PROJECT STATUS: Completed. In Alpha.
 
+Update 10/30/14: MySurf licensed under Emposoft open source license. See license file for more information. 
+
 Update 9/23/14: MySurf will most likely remain in Alpha until we can view the details of the new Awesomium branch. According to Awesomium Dev Adam Simmons, Awesomium “switched over to latest Blink/WebKit trunk last year and are conducting a massive overhaul of the rendering architecture” and “more details will be announced soon”. Hopefully they can get up to the latest WebKit trunk, from this year, soon.
 
 Update 9/14/14: MySurf 3.0 Alpha 1 is out now! View the code above, or go to http://mysurf.tk/download to download an already built package.
