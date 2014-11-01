@@ -6,6 +6,8 @@ MySurf web browser.
 
 PROJECT STATUS: Completed. In Alpha.
 
+Update 11/1/14: Since MySurf Auto Login will be coming out within the next week, a note about the security: MySurf Auto Login is not a magic bullet. Even though MySurf Auto Login provides useful encryption for your password, you should never trust any piece of software with your life, and MySurf is no exception.
+
 Update 10/30/14: MySurf licensed under Emposoft open source license. See license file for more information. 
 
 Update 9/23/14: MySurf will most likely remain in Alpha until we can view the details of the new Awesomium branch. According to Awesomium Dev Adam Simmons, Awesomium “switched over to latest Blink/WebKit trunk last year and are conducting a massive overhaul of the rendering architecture” and “more details will be announced soon”. Hopefully they can get up to the latest WebKit trunk, from this year, soon.
