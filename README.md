@@ -4,9 +4,9 @@ MySurf
 MySurf web browser.
 
 
-PROJECT STATUS: Completed. In Alpha.
+PROJECT STATUS: Completed. In Beta.
 
-BUILD STATUS: ![](http://mysurf.tk/buildstatussuccess.png)
+Update 11/26/14: MySurf Beta 1 is now out! This update includes bug fixes and added features. To update:Go on MySurf, click the "settings" icon in the top-right corner, click the "i", click "Check for updates", follow prompts. You can also download the new update package from http://mysurf.tk/download and install over your current version.
 
 Update 11/1/14: Since MySurf Auto Login will be coming out within the next week, a note about the security: MySurf Auto Login is not a magic bullet. Even though MySurf Auto Login provides useful encryption for your password, you should never trust any piece of software with your life, and MySurf is no exception.
 
