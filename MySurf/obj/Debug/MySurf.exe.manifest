@@ -51,31 +51,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FfLxIQlyfg5hqMPm6s0nZye39pMKn9QCxMno5DzCP+8=</dsig:DigestValue>
+        <dsig:DigestValue>wVuY9iTAO6CvZIDkz4ktZj2rSIuYoGqkZaWbzXnbRww=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cwber.dll" size="57344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cwber.dll" size="58880">
       <assemblyIdentity name="cwber" version="1.1.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h2lrZEJ9zM/CHu8sIvFfZOQapW30s/FqBt5+Jc0+0LE=</dsig:DigestValue>
+        <dsig:DigestValue>AElbaalt8SrFhDU27yIN97UqnhL+XdBMTYUkp4yFpt0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySurf.exe" size="3259392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySurf.exe" size="3742208">
       <assemblyIdentity name="MySurf" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uDgYkrQaScLRRqJyFGT1SZgP9qJIJcJLw83hx9CJyMo=</dsig:DigestValue>
+        <dsig:DigestValue>mXP0NQA5jSxISzKR0Q1iujRglRhSUCOUwhG7iw2UpY4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -106,13 +106,13 @@
       <dsig:DigestValue>rElHAwGu0+xqLy+ATky/OWT+zbepXk+pzAUtaTC9MtM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MySurf.exe.config" size="2708">
+  <file name="MySurf.exe.config" size="3872">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6z8NH1lf31D+S9jmt5A43Z0pWKZOJ0vc++41D+H0pbU=</dsig:DigestValue>
+      <dsig:DigestValue>sdhJk7lBErdh2dVIicFGB5hq1FA8ooruOQt19PtUUz8=</dsig:DigestValue>
     </hash>
   </file>
   <fileAssociation extension=".mysurf" description="MySurf Extention" progid="1" defaultIcon="logomysurf.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />

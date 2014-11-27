@@ -2,35 +2,36 @@
 Imports Sashulin
 Imports System.Threading
 Imports System.Net
+Imports System.Text.RegularExpressions
 
 
 Public Class main
     Private Sub main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim appPath As String = Application.StartupPath
         Try
-            'Gets OS version for User Agent
-            Dim osversion As String
-            osversion = My.Computer.Info.OSFullName.ToString
-            'Gets application startup path for cache
-            Dim appPath As String = Application.StartupPath
-            'New Chromium settings
-            Dim settings As New CSharpBrowserSettings
-            settings.UserAgent = ("MySurf 3.0 (Alpha 3) - Mozilla/5.0 (" & osversion & "; AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36")
-            'Initialize Chromium
-            ChromeWebBrowser1.Initialize(settings)
-            'Goes to homepage on startup
-            ChromeWebBrowser1.OpenUrl(My.Settings.home)
-            'Get everything out of bookmarks
-            ListBox1.Items.Clear()
-            'Get bookmarks from My.Settings.favlist
-            Dim strings(My.Settings.favlist.Count - 1) As String
-            My.Settings.favlist.CopyTo(strings, 0)
-            'Add bookmarks to listbox
-            ListBox1.Items.AddRange(strings)
-            'Configure Dynamic UI; MySurf Themes
-            'Dim appPathDynamic As String
-            'appPathDynamic = Application.StartupPath
-            'back.BackgroundImage = System.Drawing.Image.FromFile(appPathDynamic & "\themes\current\backtest.png")
-            'Not needed for now.
+                'Sets AutoLogin Script
+                My.Settings.ALgoogleFIN = "document.getElementById('Email').value='1';document.getElementById('Passwd').value='2'"
+                My.Settings.ALmicrosoftFIN = "document.getElementById('i0116').value='9';document.getElementById('i0118').value='5'"
+                'Gets OS version for User Agent
+                Dim osversion As String
+                osversion = My.Computer.Info.OSFullName.ToString
+                'Gets application startup path for cache
+                'New Chromium settings
+                Dim settings As New CSharpBrowserSettings
+                settings.UserAgent = ("Mozilla/5.0 (" & osversion & "; AppleWebKit/537.36 (KHTML, like Gecko) MySurf/3.0")
+                settings.CachePath = (appPath + "/MySurf Cache/")
+                'Initialize Chromium
+                ChromeWebBrowser1.Initialize(settings)
+                'Goes to homepage on startup
+                ChromeWebBrowser1.OpenUrl(My.Settings.home)
+                'Get everything out of bookmarks
+                ListBox1.Items.Clear()
+                'Get bookmarks from My.Settings.favlist
+                Dim strings(My.Settings.favlist.Count - 1) As String
+                My.Settings.favlist.CopyTo(strings, 0)
+                'Add bookmarks to listbox
+                ListBox1.Items.AddRange(strings)
+
         Catch ex As Exception
             MsgBox("There was an error initializing Chromium. Please reinstall MySurf. Error details will come up next.")
             MsgBox(ex.Message)
@@ -40,6 +41,36 @@ Public Class main
             TextBox3.Text = My.Settings.quicknote
         Catch ex As Exception
             MsgBox("Unable to open note. Note data seems damaged.")
+        End Try
+        Try
+            autologingoogle.TestDecoding()
+            My.Settings.ALgoogleFIN = My.Settings.ALgoogleFIN.Replace("1", My.Settings.ALgoogleUN)
+            My.Settings.ALgoogleFIN = My.Settings.ALgoogleFIN.Replace("2", My.Settings.ALgooglePASS)
+            autologingoogle.TextBox3.Text = TextBox3.Text.Replace("1", TextBox1.Text)
+            My.Settings.Save()
+        Catch ex As Exception
+
+        End Try
+        Try
+            autologinmicrosoft.TestDecoding()
+            My.Settings.ALmicrosoftFIN = My.Settings.ALmicrosoftFIN.Replace("9", My.Settings.ALmicrosoftUN)
+            My.Settings.ALmicrosoftFIN = My.Settings.ALmicrosoftFIN.Replace("5", My.Settings.ALmicrosoftPASS)
+            autologinmicrosoft.TextBox3.Text = TextBox3.Text.Replace("9", TextBox1.Text)
+            My.Settings.Save()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Try
+            If My.Settings.crash = False Then
+                My.Settings.restore = My.Settings.crashURL
+                crashrestore.Show()
+
+            Else
+                My.Settings.crash = False
+                My.Settings.Save()
+            End If
+        Catch ex As Exception
+            MsgBox("It seems that someone has tampered with MySurfs data file.")
         End Try
     End Sub
 
@@ -105,6 +136,7 @@ Public Class main
         'To display the QuickAction box
         If qsb.Visible = False Then
             qsb.Visible = True
+            TabControl1.Visible = False
         Else
             If qsb.Visible = True Then
                 qsb.Visible = False
@@ -131,10 +163,6 @@ Public Class main
         ChromeWebBrowser1.Reload(True)
     End Sub
 
-    Private Sub ListBox1_Click(sender As Object, e As EventArgs) Handles ListBox1.Click
-
-    End Sub
-
     Private Sub fav_Click(sender As Object, e As EventArgs) Handles fav.Click
         If TabControl1.Visible = True Then
             TabControl1.Visible = False
@@ -143,6 +171,7 @@ Public Class main
         Else
             If TabControl1.Visible = False Then
                 TabControl1.Visible = True
+                qsb.Visible = False
                 ChromeWebBrowser1.Focus()
                 Label3.Visible = False
             Else
@@ -168,29 +197,45 @@ Public Class main
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         TextBox2.Text = (ChromeWebBrowser1.Url.ToString)
     End Sub
-    Private Sub Button5_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
+        My.Settings.clearcache = True
+        MsgBox("MySurf will now restart to clear the cache.")
+        Application.Restart()
 
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         ChromeWebBrowser1.DeleteAllCookies()
+        MsgBox("All cookies have been deleted.")
     End Sub
 
     Private Sub ChromeWebBrowser1_BrowserDocumentCompleted(sender As Object, e As EventArgs) Handles ChromeWebBrowser1.BrowserDocumentCompleted
-        Try
-            If ChromeWebBrowser1.Url.Contains("https://accounts.google.com/ServiceLogin") = True Then
-                ChromeWebBrowser1.ExecuteScript(My.Settings.ALgoogleFIN)
-            End If
-        Catch ex As Exception
-        End Try
+        If My.Settings.ALgoogleENA = True Then
+            Try
+                If ChromeWebBrowser1.Url.Contains("https://accounts.google.com/ServiceLogin") = True Then
+                    ChromeWebBrowser1.ExecuteScript(My.Settings.ALgoogleFIN)
+
+                End If
+            Catch ex As Exception
+            End Try
+        Else
+
+        End If
+        If My.Settings.ALmicrosoftENA = True Then
+            Try
+                If ChromeWebBrowser1.Url.Contains("https://login.live.com/login.srf") = True Then
+                    ChromeWebBrowser1.ExecuteScript(My.Settings.ALmicrosoftFIN)
+
+                End If
+            Catch ex As Exception
+            End Try
+        Else
+
+        End If
         Dim url As New Uri(ChromeWebBrowser1.Url.ToString)
         Dim websitename As String
         websitename = ChromeWebBrowser1.Title.ToString
-        Me.Invoke(DirectCast(Sub() Me.Text = (websitename & " | MySurf 3.0 Alpha 3"), MethodInvoker))
+        Me.Invoke(DirectCast(Sub() Me.Text = (websitename & " | MySurf"), MethodInvoker))
         Try
             If url.HostNameType = UriHostNameType.Dns Then
                 Dim favicon As String = "http://" & url.Host & "/favicon.ico"
@@ -206,11 +251,23 @@ Public Class main
         Catch ex As Exception
 
         End Try
+        If TextBox1.Text.Contains("mysurf://settings") = True Then
+            ChromeWebBrowser1.GoBack()
+            settings.Show()
+        End If
+        If TextBox1.Text.Contains("mysurf://crash") = True Then
+            Environment.FailFast("MySurf Crash due to mysurf://crash being called.")
+        End If
+        If TextBox1.Text.Contains("mysurf://restore") = True Then
+            crashrestore.show()
+        End If
+        My.Settings.crashURL = ChromeWebBrowser1.Url.ToString
+        My.Settings.Save()
+
     End Sub
     Private Sub ChromeWebBrowser1_BrowserUrlChange(sender As Object, e As Sashulin.UrlChangeEventArgs) Handles ChromeWebBrowser1.BrowserUrlChange
         Me.Invoke(DirectCast(Sub() TextBox1.Text = ChromeWebBrowser1.Url.ToString, MethodInvoker))
     End Sub
-
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If ChromeWebBrowser1.canGoForward = True Then
             forward.BackgroundImage = My.Resources.arrow_next_3_icon
@@ -223,7 +280,6 @@ Public Class main
             back.BackgroundImage = My.Resources.arrow_back_icon_faded
         End If
     End Sub
-
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         ListBox1.Items.Remove(ListBox1.SelectedItem)
         Dim strings(ListBox1.Items.Count - 1) As String
@@ -231,53 +287,57 @@ Public Class main
         My.Settings.favlist.Clear()
         My.Settings.favlist.AddRange(strings)
     End Sub
-
     Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
         If ListBox1.SelectedItem = "" Then
 
         Else
             My.Settings.openbookmark = ListBox1.SelectedItem()
             ChromeWebBrowser1.OpenUrl(My.Settings.openbookmark)
+            TabControl1.Visible = False
         End If
 
     End Sub
-
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
         My.Settings.quicknote = TextBox3.Text
         My.Settings.Save()
     End Sub
-
     Private Sub main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        My.Settings.ALgoogleFIN = ""
+        My.Settings.ALgooglePASS = ""
+        My.Settings.ALmicrosoftFIN = ""
+        My.Settings.ALmicrosoftPASS = ""
         My.Settings.quicknote = TextBox3.Text
+        My.Settings.crash = True
         My.Settings.Save()
     End Sub
-
-    Private Sub ChromeWebBrowser1_Load(sender As Object, e As EventArgs) Handles ChromeWebBrowser1.Load
-
-    End Sub
-
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         ChromeWebBrowser1.ShowDevTool()
     End Sub
+    Private Sub BackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click
+        back.PerformClick()
+    End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs)
+    Private Sub ForwardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ForwardToolStripMenuItem.Click
+        forward.PerformClick()
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        refreshbtn.PerformClick()
+    End Sub
+
+    Private Sub BookmarkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkToolStripMenuItem.Click
+        fav.PerformClick()
+        Button3.PerformClick()
+    End Sub
+    Private Sub ViewSourceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewSourceToolStripMenuItem.Click
+        ChromeWebBrowser1.ViewSource()
+    End Sub
+
+    Private Sub main_MaximumSizeChanged(sender As Object, e As EventArgs) Handles Me.MaximumSizeChanged
 
     End Sub
 
-    Private Sub ALgoogle_Tick(sender As Object, e As EventArgs) Handles ALgoogle.Tick
-       
-    End Sub
-
-    Private Sub Button9_Click_1(sender As Object, e As EventArgs)
-
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

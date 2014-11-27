@@ -48,19 +48,27 @@ Partial Class main
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ChromeWebBrowser1 = New Sashulin.ChromeWebBrowser()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ForwardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BookmarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewSourceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.home = New System.Windows.Forms.Button()
         Me.forward = New System.Windows.Forms.Button()
         Me.back = New System.Windows.Forms.Button()
         Me.fav = New System.Windows.Forms.Button()
         Me.quickbar = New System.Windows.Forms.Button()
         Me.refreshbtn = New System.Windows.Forms.Button()
-        Me.ALgoogle = New System.Windows.Forms.Timer(Me.components)
+        Me.ChromeWebBrowser1 = New Sashulin.ChromeWebBrowser()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.qsb.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -286,18 +294,72 @@ Partial Class main
         Me.PictureBox1.TabIndex = 13
         Me.PictureBox1.TabStop = False
         '
-        'ChromeWebBrowser1
+        'ContextMenuStrip1
         '
-        Me.ChromeWebBrowser1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ChromeWebBrowser1.BackColor = System.Drawing.Color.White
-        Me.ChromeWebBrowser1.BackgroundImage = CType(resources.GetObject("ChromeWebBrowser1.BackgroundImage"), System.Drawing.Image)
-        Me.ChromeWebBrowser1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ChromeWebBrowser1.Location = New System.Drawing.Point(0, 37)
-        Me.ChromeWebBrowser1.Name = "ChromeWebBrowser1"
-        Me.ChromeWebBrowser1.Size = New System.Drawing.Size(1041, 620)
-        Me.ChromeWebBrowser1.TabIndex = 12
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackToolStripMenuItem, Me.ForwardToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.BookmarkToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ViewSourceToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(139, 228)
+        Me.ContextMenuStrip1.Text = "Quick Controls"
+        '
+        'BackToolStripMenuItem
+        '
+        Me.BackToolStripMenuItem.BackgroundImage = CType(resources.GetObject("BackToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.BackToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BackToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BackToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackToolStripMenuItem.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.BackToolStripMenuItem.Text = "Back"
+        '
+        'ForwardToolStripMenuItem
+        '
+        Me.ForwardToolStripMenuItem.BackgroundImage = CType(resources.GetObject("ForwardToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.ForwardToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ForwardToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ForwardToolStripMenuItem.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
+        Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.ForwardToolStripMenuItem.Text = "Forward"
+        '
+        'RefreshToolStripMenuItem
+        '
+        Me.RefreshToolStripMenuItem.BackgroundImage = CType(resources.GetObject("RefreshToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.RefreshToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.RefreshToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.RefreshToolStripMenuItem.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.RefreshToolStripMenuItem.Text = "Refresh"
+        '
+        'BookmarkToolStripMenuItem
+        '
+        Me.BookmarkToolStripMenuItem.BackgroundImage = CType(resources.GetObject("BookmarkToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.BookmarkToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BookmarkToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BookmarkToolStripMenuItem.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.BookmarkToolStripMenuItem.Name = "BookmarkToolStripMenuItem"
+        Me.BookmarkToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.BookmarkToolStripMenuItem.Text = "Bookmark"
+        '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.BackgroundImage = CType(resources.GetObject("PrintToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.PrintToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PrintToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.PrintToolStripMenuItem.Text = "Print"
+        '
+        'ViewSourceToolStripMenuItem
+        '
+        Me.ViewSourceToolStripMenuItem.BackgroundImage = CType(resources.GetObject("ViewSourceToolStripMenuItem.BackgroundImage"), System.Drawing.Image)
+        Me.ViewSourceToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ViewSourceToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ViewSourceToolStripMenuItem.Name = "ViewSourceToolStripMenuItem"
+        Me.ViewSourceToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.ViewSourceToolStripMenuItem.Text = "View Source"
         '
         'home
         '
@@ -380,15 +442,30 @@ Partial Class main
         Me.refreshbtn.TabIndex = 5
         Me.refreshbtn.UseVisualStyleBackColor = False
         '
-        'ALgoogle
+        'ChromeWebBrowser1
         '
-        Me.ALgoogle.Enabled = True
+        Me.ChromeWebBrowser1.AllowDrop = True
+        Me.ChromeWebBrowser1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ChromeWebBrowser1.BackColor = System.Drawing.Color.White
+        Me.ChromeWebBrowser1.BackgroundImage = CType(resources.GetObject("ChromeWebBrowser1.BackgroundImage"), System.Drawing.Image)
+        Me.ChromeWebBrowser1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ChromeWebBrowser1.Location = New System.Drawing.Point(0, 37)
+        Me.ChromeWebBrowser1.Name = "ChromeWebBrowser1"
+        Me.ChromeWebBrowser1.Size = New System.Drawing.Size(1041, 620)
+        Me.ChromeWebBrowser1.TabIndex = 12
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
         '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 655)
+        Me.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.qsb)
         Me.Controls.Add(Me.TabControl1)
@@ -405,7 +482,7 @@ Partial Class main
         Me.MinimumSize = New System.Drawing.Size(356, 300)
         Me.Name = "main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MySurf 3.0 (Alpha 3)"
+        Me.Text = "MySurf 3.0 (Beta 1)"
         Me.qsb.ResumeLayout(False)
         Me.qsb.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -413,6 +490,7 @@ Partial Class main
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -441,13 +519,20 @@ End Sub
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents ChromeWebBrowser1 As Sashulin.ChromeWebBrowser
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents ALgoogle As System.Windows.Forms.Timer
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents BackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ForwardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BookmarkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ChromeWebBrowser1 As Sashulin.ChromeWebBrowser
+    Friend WithEvents PrintToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ViewSourceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
 
 End Class

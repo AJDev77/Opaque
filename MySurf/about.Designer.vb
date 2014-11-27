@@ -67,9 +67,9 @@ Partial Class about
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(345, 107)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 13)
+        Me.Label2.Size = New System.Drawing.Size(100, 13)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Version 3.0 (Alpha 3)"
+        Me.Label2.Text = "Version 3.0 (Beta 1)"
         '
         'PictureBox2
         '
@@ -88,7 +88,7 @@ Partial Class about
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(70, 13)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "build-3.0/142"
+        Me.Label1.Text = "build-3.0/168"
         Me.Label1.Visible = False
         '
         'about

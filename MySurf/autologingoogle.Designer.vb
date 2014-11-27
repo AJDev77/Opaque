@@ -30,6 +30,7 @@ Partial Class autologingoogle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -94,15 +95,25 @@ Partial Class autologingoogle
     "e='2'"
         Me.TextBox3.Visible = False
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(15, 25)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(71, 17)
+        Me.CheckBox1.TabIndex = 9
+        Me.CheckBox1.Text = "Enabled?"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(10, 116)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(320, 39)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "NOTE: Your login details are NOT encrypted! Your account details" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "are not uploade" & _
-    "d anywhere, it is only stored on your computer." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Encryption is coming soon!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label4.Size = New System.Drawing.Size(301, 39)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "NOTE: Your login details ARE encrypted! Your account details" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "are not uploaded an" & _
+    "ywhere, it is only stored on your computer." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'autologingoogle
         '
@@ -110,6 +121,7 @@ Partial Class autologingoogle
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(437, 162)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
@@ -118,7 +130,10 @@ Partial Class autologingoogle
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "autologingoogle"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Google Auto Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -131,5 +146,6 @@ Partial Class autologingoogle
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

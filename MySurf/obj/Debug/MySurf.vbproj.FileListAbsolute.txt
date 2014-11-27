@@ -22,8 +22,18 @@ C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\MySurf
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.TrustInfo.xml
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.exe.manifest
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.application
-C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.advancedsettings.resources
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.vbprojResolveAssemblyReference.cache
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.theme.resources
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.autologin.resources
 C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.autologingoogle.resources
+C:\Users\AJ\Documents\MySurf-master\MySurf-master\MySurf\bin\Debug\MySurf.exe.config
+C:\Users\AJ\Documents\MySurf-master\MySurf-master\MySurf\obj\Debug\MySurf.exe
+C:\Users\AJ\Documents\MySurf-master\MySurf-master\MySurf\obj\Debug\MySurf.xml
+C:\Users\AJ\Documents\MySurf-master\MySurf-master\MySurf\obj\Debug\MySurf.pdb
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.autologinmicrosoft.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\Cef3.dll
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\cwber.dll
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\Cef3.pdb
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\Cef3.xml
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\Debug\cwber.pdb
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\Debug\MySurf.crashrestore.resources

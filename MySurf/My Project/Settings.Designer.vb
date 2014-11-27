@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://emposoft.tk/")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://mysurf.tk/start/")>  _
         Public Property home() As String
             Get
                 Return CType(Me("home"),String)
@@ -75,20 +75,6 @@ Namespace My
             End Get
             Set
                 Me("search") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
-            "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <s"& _ 
-            "tring>http://mysurf.tk/</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfString>")>  _
-        Public Property favlist() As Global.System.Collections.Specialized.StringCollection
-            Get
-                Return CType(Me("favlist"),Global.System.Collections.Specialized.StringCollection)
-            End Get
-            Set
-                Me("favlist") = value
             End Set
         End Property
         
@@ -221,6 +207,140 @@ Namespace My
             End Get
             Set
                 Me("ALgoogleFIN") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
+            "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <s"& _ 
+            "tring>http://mysurf.tk/</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfString>")>  _
+        Public Property favlist() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("favlist"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("favlist") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ALmicrosoftUN() As String
+            Get
+                Return CType(Me("ALmicrosoftUN"),String)
+            End Get
+            Set
+                Me("ALmicrosoftUN") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property ALmicrosoftENA() As Boolean
+            Get
+                Return CType(Me("ALmicrosoftENA"),Boolean)
+            End Get
+            Set
+                Me("ALmicrosoftENA") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ALmicrosoftFIN() As String
+            Get
+                Return CType(Me("ALmicrosoftFIN"),String)
+            End Get
+            Set
+                Me("ALmicrosoftFIN") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ALmicrosoftENC() As String
+            Get
+                Return CType(Me("ALmicrosoftENC"),String)
+            End Get
+            Set
+                Me("ALmicrosoftENC") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ALmicrosoftPASS() As String
+            Get
+                Return CType(Me("ALmicrosoftPASS"),String)
+            End Get
+            Set
+                Me("ALmicrosoftPASS") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ALgoogleENC() As String
+            Get
+                Return CType(Me("ALgoogleENC"),String)
+            End Get
+            Set
+                Me("ALgoogleENC") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property clearcache() As Boolean
+            Get
+                Return CType(Me("clearcache"),Boolean)
+            End Get
+            Set
+                Me("clearcache") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property crash() As Boolean
+            Get
+                Return CType(Me("crash"),Boolean)
+            End Get
+            Set
+                Me("crash") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property crashURL() As String
+            Get
+                Return CType(Me("crashURL"),String)
+            End Get
+            Set
+                Me("crashURL") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property restore() As String
+            Get
+                Return CType(Me("restore"),String)
+            End Get
+            Set
+                Me("restore") = value
             End Set
         End Property
     End Class

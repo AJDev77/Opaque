@@ -1,0 +1,16 @@
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\bin\x64\Debug\MySurf.exe.config
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.about.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.autologin.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.autologingoogle.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.autologinmicrosoft.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.homepage.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.locked.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.locks.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.main.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.Resources.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.search.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.settings.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.splash.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.theme.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.updatedio.resources
+C:\Users\AJ\Documents\Visual Studio 2013\Projects\MySurf\MySurf\obj\x64\Debug\MySurf.vbproj.GenerateResource.Cache

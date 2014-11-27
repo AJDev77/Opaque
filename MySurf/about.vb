@@ -9,7 +9,7 @@ Public Class about
             Label3.Refresh()
         Dim web As New WebClient
             Dim update As String = web.DownloadString("http://mysurf.tk/downloads/update.txt")
-            If update.Contains("3.0 Alpha 3") Then
+            If update.Contains("3.0 Beta 1") Then
                 'There is no update
                 Label3.Text = "You have the latest version."
             Else
