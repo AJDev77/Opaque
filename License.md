@@ -1,4 +1,4 @@
-Emposoft license v1.0
+Emposoft license v1.1
 
 Copyright (c) 2015 Emposoft
 
@@ -12,7 +12,9 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-You may not redistribute this software under the name of the people who originally wrote this code, or under the original of this software. 
+You may not redistribute this software under the name of the people who originally wrote this code.
+
+You are required to attribute the creators of the original software. 
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
