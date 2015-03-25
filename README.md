@@ -3,7 +3,7 @@ MySurf
 
 [![Join the chat at https://gitter.im/Emposoft/MySurf](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Emposoft/MySurf?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-MySurf is a web browser built for speed, simplicity, and security.
+MySurf: The best of the Internet in one package. And it's all for you.
 
 PROJECT STATUS: Completed. In Alpha.
 
