@@ -1,6 +1,6 @@
 language: csharp
 solution: MySurf.sln
 script:
-  - xbuild /p:Configuration=Debug|x86 MySurf.sln
+  - xbuild /p:Configuration=Debug MySurf.sln
 install:
   - nuget restore MySurf.sln
