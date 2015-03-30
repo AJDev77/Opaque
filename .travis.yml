@@ -1,0 +1,4 @@
+language: csharp
+solution: MySurf.sln
+install:
+  - nuget restore MySurf.sln
