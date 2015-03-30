@@ -1,4 +1,6 @@
 language: csharp
 solution: MySurf.sln
+script:
+  - Configuration=x86 MySurf.sln
 install:
   - nuget restore MySurf.sln
