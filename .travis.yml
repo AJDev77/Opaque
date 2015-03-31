@@ -1,6 +1,6 @@
 language: csharp
 solution: MySurf.sln
 script:
-  - xbuild /p:Configuration=Debug /p:Platform="x86" MySurf.sln
+  - MONO_IOMAP=all xbuild /p:Configuration=Debug /p:Platform="x86" MySurf.sln
 install:
   - nuget restore MySurf.sln
