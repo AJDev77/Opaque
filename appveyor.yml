@@ -2,6 +2,6 @@ version: 1.0.{build}
 configuration: Debug
 platform: x86
 before_build:
-- nuget restore MySurf\MySurf.sln
+- nuget restore
 build:
   verbosity: detailed
