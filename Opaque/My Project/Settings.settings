@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="QuickNote" Type="System.String" Scope="User">
+      <Value Profile="(Default)">This is QuickNote. Just start typing and QuickNote will auto-save, even if the application crashes. To begin, simply delete this message!</Value>
+    </Setting>
+    <Setting Name="search" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://duckduckgo.com/?q=</Value>
+    </Setting>
+    <Setting Name="homepage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://duckduckgo.com/</Value>
+    </Setting>
+    <Setting Name="searchname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DuckDuckGo</Value>
+    </Setting>
+    <Setting Name="themecolor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#F0F0F0</Value>
+    </Setting>
+    <Setting Name="newpage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://opaquebrowser.com</Value>
+    </Setting>
+    <Setting Name="sharepage" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tweetpage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://opaquebrowser.com</Value>
+    </Setting>
+    <Setting Name="CacheLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DEFAULT</Value>
+    </Setting>
+    <Setting Name="ClearCache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PrivacyMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LifeSpanNewPage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DownloadPercent" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloadReB" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloadTotB" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloadSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
