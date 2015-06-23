@@ -133,7 +133,6 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-  <ItemGroup>
     <Reference Include="JacksonSoft.CustomTabControl, Version=1.0.1.7, Culture=neutral, PublicKeyToken=53c237210c7e462d, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\JacksonSoft.CustomTabControl.dll</HintPath>
