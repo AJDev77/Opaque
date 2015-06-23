@@ -11,12 +11,11 @@ modification, are permitted provided that the following conditions are met:
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 
-* Neither the name of MySurf nor the names of its
+* Neither the name of Opaque (or other names/aliases, such as MySurf) nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
   
-* The original developers of this software, may, at any time, poesses the liberty
-  to change this license at will, without notification of other parties. 
+* The original developers of this software, may, at any time, change this license at will, without notification of other     parties. All other parties are subject to the new license at the time that it is published. 
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
