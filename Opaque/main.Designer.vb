@@ -40,7 +40,8 @@ Partial Class main
         Me.CustomTabControl1.DisplayStyleProvider.BorderColor = System.Drawing.SystemColors.ControlDark
         Me.CustomTabControl1.DisplayStyleProvider.BorderColorHot = System.Drawing.SystemColors.ControlDark
         Me.CustomTabControl1.DisplayStyleProvider.BorderColorSelected = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.CustomTabControl1.DisplayStyleProvider.CloserColor = System.Drawing.Color.DarkGray
+        Me.CustomTabControl1.DisplayStyleProvider.CloserColor = System.Drawing.Color.DimGray
+        Me.CustomTabControl1.DisplayStyleProvider.CloserColorActive = System.Drawing.Color.DarkRed
         Me.CustomTabControl1.DisplayStyleProvider.FocusTrack = False
         Me.CustomTabControl1.DisplayStyleProvider.HotTrack = True
         Me.CustomTabControl1.DisplayStyleProvider.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -90,6 +91,8 @@ Partial Class main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1041, 655)
         Me.Controls.Add(Me.InternalNewTab)
         Me.Controls.Add(Me.PictureBox1)

@@ -60,7 +60,7 @@ Partial Class about
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Version 1.0.0"
+        Me.Label1.Text = "Version 1.1.0"
         '
         'Label2
         '
@@ -75,11 +75,12 @@ Partial Class about
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(264, 239)
+        Me.Label4.Location = New System.Drawing.Point(273, 226)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(266, 13)
+        Me.Label4.Size = New System.Drawing.Size(245, 26)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Opaque is designed and coded by AJDev at Emposoft."
+        Me.Label4.Text = "Opaque is coded by Emposoft, with additional help" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from open source contributors." & _
+    ""
         '
         'Label3
         '
@@ -88,7 +89,7 @@ Partial Class about
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 13)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "build-stable/001"
+        Me.Label3.Text = "build-stable/012" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label3.Visible = False
         '
         'about

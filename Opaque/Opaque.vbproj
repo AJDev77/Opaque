@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\CefSharp.WinForms.41.0.0-pre01\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.41.0.0-pre01\build\CefSharp.WinForms.props')" />
-  <Import Project="..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\CefSharp.WinForms.41.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.41.0.0\build\CefSharp.WinForms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <NuGetPackageImportStamp>081c3751</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>3b716977</NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\AJ\Opaque\Releases\1.0.0\</PublishUrl>
     <Install>true</Install>
@@ -175,6 +175,12 @@
     <Compile Include="downloading.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="engine.Designer.vb">
+      <DependentUpon>engine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="engine.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -203,12 +209,6 @@
     <Compile Include="settings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sharepage.Designer.vb">
-      <DependentUpon>sharepage.vb</DependentUpon>
-    </Compile>
-    <Compile Include="sharepage.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="tabs.Designer.vb">
       <DependentUpon>tabs.vb</DependentUpon>
     </Compile>
@@ -229,6 +229,9 @@
     <EmbeddedResource Include="downloading.resx">
       <DependentUpon>downloading.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="engine.resx">
+      <DependentUpon>engine.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.vb</DependentUpon>
     </EmbeddedResource>
@@ -240,9 +243,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="settings.resx">
       <DependentUpon>settings.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sharepage.resx">
-      <DependentUpon>sharepage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tabs.resx">
       <DependentUpon>tabs.vb</DependentUpon>
@@ -268,6 +268,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\w_light.png" />
+    <None Include="Resources\w_green.png" />
+    <None Include="Resources\w_dark.png" />
+    <None Include="Resources\e_light.png" />
+    <None Include="Resources\e_green.png" />
+    <None Include="Resources\e_dark.png" />
+    <None Include="Resources\b_light.png" />
+    <None Include="Resources\b_green.png" />
+    <None Include="Resources\b_dark.png" />
     <None Include="Opaque_TemporaryKey.pfx" />
     <None Include="Resources\red_slider.png" />
     <None Include="Resources\green_slider.png" />
@@ -302,12 +311,12 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\cef.redist.x86.3.2272.32\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2272.32\build\cef.redist.x86.targets'))" />
     <Error Condition="!Exists('..\packages\cef.redist.x64.3.2272.32\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2272.32\build\cef.redist.x64.targets'))" />
-    <Error Condition="!Exists('..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.props'))" />
-    <Error Condition="!Exists('..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.targets'))" />
-    <Error Condition="!Exists('..\packages\CefSharp.WinForms.41.0.0-pre01\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.41.0.0-pre01\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.41.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.41.0.0\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.targets'))" />
   </Target>
   <Import Project="..\packages\cef.redist.x64.3.2272.32\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2272.32\build\cef.redist.x64.targets')" />
-  <Import Project="..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.41.0.0-pre01\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.41.0.0\build\CefSharp.Common.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

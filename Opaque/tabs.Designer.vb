@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports CefSharp
+Imports Opaque.RequestHandler
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class tabs
@@ -28,6 +29,7 @@ Partial Class tabs
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(tabs))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.stopbtn = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.qab = New System.Windows.Forms.PictureBox()
@@ -37,15 +39,28 @@ Partial Class tabs
         Me.back = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.qabbox = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.share = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.QuickNote = New System.Windows.Forms.TextBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.BFControl = New System.Windows.Forms.Timer(Me.components)
-        Me.stopbtn = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ForwardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
+        CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.qab, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.brrefresh, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.forward, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,12 +68,16 @@ Partial Class tabs
         CType(Me.back, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.qabbox.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.share, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -77,6 +96,18 @@ Partial Class tabs
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1057, 47)
         Me.Panel1.TabIndex = 0
+        '
+        'stopbtn
+        '
+        Me.stopbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.stopbtn.BackgroundImage = CType(resources.GetObject("stopbtn.BackgroundImage"), System.Drawing.Image)
+        Me.stopbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.stopbtn.Location = New System.Drawing.Point(972, 3)
+        Me.stopbtn.Name = "stopbtn"
+        Me.stopbtn.Size = New System.Drawing.Size(40, 40)
+        Me.stopbtn.TabIndex = 5
+        Me.stopbtn.TabStop = False
+        Me.stopbtn.Visible = False
         '
         'Button1
         '
@@ -161,24 +192,127 @@ Partial Class tabs
         '
         Me.qabbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.qabbox.BackColor = System.Drawing.Color.White
-        Me.qabbox.Controls.Add(Me.PictureBox1)
+        Me.qabbox.Controls.Add(Me.GroupBox1)
+        Me.qabbox.Controls.Add(Me.PictureBox2)
         Me.qabbox.Controls.Add(Me.share)
         Me.qabbox.Controls.Add(Me.GroupBox2)
         Me.qabbox.Controls.Add(Me.PictureBox7)
         Me.qabbox.Controls.Add(Me.PictureBox6)
         Me.qabbox.Location = New System.Drawing.Point(767, 0)
         Me.qabbox.Name = "qabbox"
-        Me.qabbox.Size = New System.Drawing.Size(290, 358)
+        Me.qabbox.Size = New System.Drawing.Size(290, 364)
         Me.qabbox.TabIndex = 0
         Me.qabbox.TabStop = False
         Me.qabbox.Visible = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.PictureBox3)
+        Me.GroupBox1.Controls.Add(Me.PictureBox4)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 363)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(281, 141)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Share"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(211, 121)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(28, 13)
+        Me.Label3.TabIndex = 17
+        Me.Label3.Text = "Print"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(186, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(79, 79)
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(44, 14)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(224, 20)
+        Me.TextBox2.TabIndex = 10
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(113, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(56, 13)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Copy URL"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(37, 121)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "Twitter"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 17)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "URL:"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackgroundImage = CType(resources.GetObject("PictureBox3.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox3.Location = New System.Drawing.Point(16, 40)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(79, 79)
+        Me.PictureBox3.TabIndex = 12
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackgroundImage = CType(resources.GetObject("PictureBox4.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox4.Location = New System.Drawing.Point(101, 40)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(79, 79)
+        Me.PictureBox4.TabIndex = 13
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox2.Location = New System.Drawing.Point(4, 305)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(52, 52)
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
         'share
         '
         Me.share.BackgroundImage = CType(resources.GetObject("share.BackgroundImage"), System.Drawing.Image)
-        Me.share.Location = New System.Drawing.Point(254, 324)
+        Me.share.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.share.Location = New System.Drawing.Point(235, 306)
         Me.share.Name = "share"
-        Me.share.Size = New System.Drawing.Size(32, 32)
+        Me.share.Size = New System.Drawing.Size(52, 52)
         Me.share.TabIndex = 3
         Me.share.TabStop = False
         '
@@ -223,26 +357,29 @@ Partial Class tabs
         'BFControl
         '
         '
-        'stopbtn
+        'ContextMenuStrip1
         '
-        Me.stopbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.stopbtn.BackgroundImage = CType(resources.GetObject("stopbtn.BackgroundImage"), System.Drawing.Image)
-        Me.stopbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.stopbtn.Location = New System.Drawing.Point(972, 3)
-        Me.stopbtn.Name = "stopbtn"
-        Me.stopbtn.Size = New System.Drawing.Size(40, 40)
-        Me.stopbtn.TabIndex = 5
-        Me.stopbtn.TabStop = False
-        Me.stopbtn.Visible = False
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackToolStripMenuItem, Me.HomeToolStripMenuItem, Me.ForwardToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(118, 70)
         '
-        'PictureBox1
+        'BackToolStripMenuItem
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(220, 324)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
+        Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.BackToolStripMenuItem.Text = "Back"
+        '
+        'HomeToolStripMenuItem
+        '
+        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.HomeToolStripMenuItem.Text = "Home"
+        '
+        'ForwardToolStripMenuItem
+        '
+        Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
+        Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.ForwardToolStripMenuItem.Text = "Forward"
         '
         'tabs
         '
@@ -258,6 +395,7 @@ Partial Class tabs
         Me.Text = "tab"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.qab, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.brrefresh, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.forward, System.ComponentModel.ISupportInitialize).EndInit()
@@ -265,16 +403,21 @@ Partial Class tabs
         CType(Me.back, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.qabbox.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.share, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Private m_IsInDesignMode As Boolean = True
     Public Sub New()
         'Initializing CEF
@@ -298,11 +441,118 @@ End Sub
             MsgBox("The cache could not be completely cleared.")
         End Try
 
+        'Load browser settings
+        Dim brsettings As New CefSharp.BrowserSettings
+        If My.Settings.LoadImages = True Then
+            brsettings.ImageLoadingDisabled = False
+        Else
+            If My.Settings.LoadImages = False Then
+                brsettings.ImageLoadingDisabled = True
+            End If
+        End If
+        If My.Settings.UniversalAccFileURLs = True Then
+            brsettings.UniversalAccessFromFileUrlsAllowed = True
+        Else
+            If My.Settings.UniversalAccFileURLs = False Then
+                brsettings.UniversalAccessFromFileUrlsAllowed = False
+            End If
+        End If
+        If My.Settings.FileAccURLs = True Then
+            brsettings.FileAccessFromFileUrlsAllowed = True
+        Else
+            If My.Settings.FileAccURLs = False Then
+                brsettings.FileAccessFromFileUrlsAllowed = False
+            End If
+        End If
+        If My.Settings.Java = True Then
+            brsettings.JavaDisabled = False
+        Else
+            If My.Settings.Java = False Then
+                brsettings.JavaDisabled = True
+            End If
+        End If
+        If My.Settings.Javascript = True Then
+            brsettings.JavascriptDisabled = False
+        Else
+            If My.Settings.Javascript = False Then
+                brsettings.JavascriptDisabled = True
+            End If
+        End If
+        If My.Settings.JSDomPaste = True Then
+            brsettings.JavascriptDomPasteDisabled = False
+        Else
+            If My.Settings.JSDomPaste = False Then
+                brsettings.JavascriptDomPasteDisabled = True
+            End If
+        End If
+        If My.Settings.JSOpenWindows = True Then
+            brsettings.JavaScriptOpenWindowsDisabled = False
+        Else
+            If My.Settings.JSOpenWindows = False Then
+                brsettings.JavaScriptOpenWindowsDisabled = True
+            End If
+        End If
+        If My.Settings.JSCloseWindows = True Then
+            brsettings.JavaScriptCloseWindowsDisabled = False
+        Else
+            If My.Settings.JSCloseWindows = False Then
+                brsettings.JavaScriptCloseWindowsDisabled = True
+            End If
+        End If
+        If My.Settings.JSAccClipboard = True Then
+            brsettings.JavaScriptAccessClipboardDisabled = False
+        Else
+            If My.Settings.JSAccClipboard = False Then
+                brsettings.JavaScriptAccessClipboardDisabled = True
+            End If
+        End If
+        If My.Settings.WebGL = True Then
+            brsettings.WebGlDisabled = False
+        Else
+            If My.Settings.WebGL = False Then
+                brsettings.WebGlDisabled = True
+            End If
+        End If
+        If My.Settings.LocalStorage = True Then
+            brsettings.LocalStorageDisabled = False
+        Else
+            If My.Settings.LocalStorage = False Then
+                brsettings.LocalStorageDisabled = True
+            End If
+        End If
+        If My.Settings.Plugins = True Then
+            brsettings.PluginsDisabled = False
+        Else
+            If My.Settings.Plugins = False Then
+                brsettings.PluginsDisabled = True
+            End If
+        End If
+        If My.Settings.Cache = True Then
+            brsettings.ApplicationCacheDisabled = False
+        Else
+            If My.Settings.Cache = False Then
+                brsettings.ApplicationCacheDisabled = True
+            End If
+        End If
+        If My.Settings.LoadRemoteFonts = True Then
+            brsettings.RemoteFontsDisabled = False
+        Else
+            If My.Settings.LoadRemoteFonts = False Then
+                brsettings.RemoteFontsDisabled = True
+            End If
+        End If
+
+
         Dim osversion As String = My.Computer.Info.OSVersion.ToString
+        Dim answer As String = osversion.Substring(0, 3)
         Dim cefsettings As New CefSharp.CefSettings
-        cefsettings.UserAgent = ("Mozilla/5.0 (" & osversion & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.0 Chrome/41.0.2272.104 Safari/537.36")
+        cefsettings.UserAgent = ("Mozilla/5.0 (Windows NT " & answer & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.1 Chrome/41.0.2272.104 Safari/537.36")
         cefsettings.IgnoreCertificateErrors = False
-        cefsettings.LogSeverity = CefSharp.LogSeverity.Disable
+        cefsettings.LogSeverity = CefSharp.LogSeverity.Verbose
+        cefsettings.RegisterScheme(New CefCustomScheme() With { _
+    .SchemeName = LocalSchemeHandlerFactory.SchemeName, _
+    .SchemeHandlerFactory = New LocalSchemeHandlerFactory() _
+})
         If My.Settings.CacheLocation = "DEFAULT" Then
             Dim appcachepath As String = Application.StartupPath & "/cache/"
             cefsettings.CachePath = appcachepath
@@ -315,6 +565,7 @@ End Sub
             Me.browser = New CefSharp.WinForms.ChromiumWebBrowser(My.Settings.newpage)
             Me.browser.Size = New System.Drawing.Size(1041, 620)
             Me.browser.Location = New System.Drawing.Point(0, 0)
+            Me.browser.BrowserSettings = brsettings
             Me.browser.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                 Or System.Windows.Forms.AnchorStyles.Left) _
                 Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -323,6 +574,7 @@ End Sub
             Me.browser.Focus()
             browser.DownloadHandler = New DownloadHandler
             browser.LifeSpanHandler = New LifeSpanHandler
+            'browser.RequestHandler = New RequestHandler
 
             'Me.browser.FocusHandler = vbNull.
 
@@ -348,5 +600,18 @@ End Sub
     Friend WithEvents BFControl As System.Windows.Forms.Timer
     Friend WithEvents share As System.Windows.Forms.PictureBox
     Friend WithEvents stopbtn As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents BackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HomeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ForwardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

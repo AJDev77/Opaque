@@ -81,7 +81,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://duckduckgo.com/")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://opaquebrowser.com/start")>  _
         Public Property homepage() As String
             Get
                 Return CType(Me("homepage"),String)
@@ -244,6 +244,234 @@ Namespace My
             End Get
             Set
                 Me("DownloadSpeed") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Logging() As String
+            Get
+                Return CType(Me("Logging"),String)
+            End Get
+            Set
+                Me("Logging") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UniversalAccFileURLs() As Boolean
+            Get
+                Return CType(Me("UniversalAccFileURLs"),Boolean)
+            End Get
+            Set
+                Me("UniversalAccFileURLs") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property FileAccURLs() As Boolean
+            Get
+                Return CType(Me("FileAccURLs"),Boolean)
+            End Get
+            Set
+                Me("FileAccURLs") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Java() As Boolean
+            Get
+                Return CType(Me("Java"),Boolean)
+            End Get
+            Set
+                Me("Java") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Javascript() As Boolean
+            Get
+                Return CType(Me("Javascript"),Boolean)
+            End Get
+            Set
+                Me("Javascript") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property JSDomPaste() As Boolean
+            Get
+                Return CType(Me("JSDomPaste"),Boolean)
+            End Get
+            Set
+                Me("JSDomPaste") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property JSOpenWindows() As Boolean
+            Get
+                Return CType(Me("JSOpenWindows"),Boolean)
+            End Get
+            Set
+                Me("JSOpenWindows") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property JSCloseWindows() As Boolean
+            Get
+                Return CType(Me("JSCloseWindows"),Boolean)
+            End Get
+            Set
+                Me("JSCloseWindows") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property JSAccClipboard() As Boolean
+            Get
+                Return CType(Me("JSAccClipboard"),Boolean)
+            End Get
+            Set
+                Me("JSAccClipboard") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property WebGL() As Boolean
+            Get
+                Return CType(Me("WebGL"),Boolean)
+            End Get
+            Set
+                Me("WebGL") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property LocalStorage() As Boolean
+            Get
+                Return CType(Me("LocalStorage"),Boolean)
+            End Get
+            Set
+                Me("LocalStorage") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property LoadImages() As Boolean
+            Get
+                Return CType(Me("LoadImages"),Boolean)
+            End Get
+            Set
+                Me("LoadImages") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Plugins() As Boolean
+            Get
+                Return CType(Me("Plugins"),Boolean)
+            End Get
+            Set
+                Me("Plugins") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Cache() As Boolean
+            Get
+                Return CType(Me("Cache"),Boolean)
+            End Get
+            Set
+                Me("Cache") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property LoadRemoteFonts() As Boolean
+            Get
+                Return CType(Me("LoadRemoteFonts"),Boolean)
+            End Get
+            Set
+                Me("LoadRemoteFonts") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property WebSecurity() As Boolean
+            Get
+                Return CType(Me("WebSecurity"),Boolean)
+            End Get
+            Set
+                Me("WebSecurity") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property epressed() As Boolean
+            Get
+                Return CType(Me("epressed"),Boolean)
+            End Get
+            Set
+                Me("epressed") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property wpressed() As Boolean
+            Get
+                Return CType(Me("wpressed"),Boolean)
+            End Get
+            Set
+                Me("wpressed") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property bpressed() As Boolean
+            Get
+                Return CType(Me("bpressed"),Boolean)
+            End Get
+            Set
+                Me("bpressed") = value
             End Set
         End Property
     End Class

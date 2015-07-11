@@ -1,8 +1,14 @@
 ﻿Imports CefSharp
+Imports System.IO
 
 Public Class tabs
 
     Dim WithEvents browser As CefSharp.WinForms.ChromiumWebBrowser
+
+    Private Sub tabs_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+
+    End Sub
 
     Private Sub tab_Load(sender As Object, e As EventArgs) Handles Me.Load
         QuickNote.Text = My.Settings.QuickNote
@@ -31,6 +37,9 @@ Public Class tabs
         Catch ex As Exception
             'Been noticing some crashing going on, so I put this in a Try.
         End Try
+    End Sub
+    Private Sub browser_Testing(sender As Object, e As EventArgs) Handles browser.FrameLoadStart
+        ' cef()
     End Sub
     Private Sub browser_AddressChanged(sender As Object, e As EventArgs) Handles browser.AddressChanged
         Me.Invoke(Sub()
@@ -80,6 +89,8 @@ Public Class tabs
         Else
             If qabbox.Visible = False Then
                 qabbox.Visible = True
+                Dim closed As New System.Drawing.Size(290, 364)
+                qabbox.Size = closed
             End If
         End If
     End Sub
@@ -93,6 +104,9 @@ Public Class tabs
             If TextBox1.Text.Contains("https://") = True Then
                 browser.Load(TextBox1.Text)
             Else
+                If TextBox1.Text.Contains("local://") = True Then
+                    browser.Load(TextBox1.Text)
+            Else
                 If TextBox1.Text.Contains(" ") = True Then
                     TextBox1.Text = TextBox1.Text.Replace(" ", "+")
                     browser.Load(My.Settings.search.ToString & TextBox1.Text)
@@ -105,6 +119,7 @@ Public Class tabs
                             browser.Load(My.Settings.search.ToString & TextBox1.Text)
                         End If
                     End If
+                End If
                 End If
             End If
         End If
@@ -142,22 +157,35 @@ Public Class tabs
     End Sub
 
     Private Sub BFControl_Tick(sender As Object, e As EventArgs) Handles BFControl.Tick
-        If browser.CanGoBack = True Then
-            back.BackgroundImage = My.Resources.back
-        Else
-            back.BackgroundImage = My.Resources.no_back
-        End If
-        If browser.CanGoForward = True Then
-            forward.BackgroundImage = My.Resources.forward
-        Else
-            forward.BackgroundImage = My.Resources.no_forward
-        End If
+        Try
+            If browser.CanGoBack = True Then
+                back.BackgroundImage = My.Resources.back
+            Else
+                back.BackgroundImage = My.Resources.no_back
+            End If
+            If browser.CanGoForward = True Then
+                forward.BackgroundImage = My.Resources.forward
+            Else
+                forward.BackgroundImage = My.Resources.no_forward
+            End If
+        Catch ex As Exception
+            'Error happens when timer starts but browser not ready
+        End Try
+
     End Sub
 
     Private Sub share_Click(sender As Object, e As EventArgs) Handles share.Click
         My.Settings.sharepage = browser.Address.ToString
-        sharepage.Show()
-        qabbox.Visible = False
+        TextBox2.Text = My.Settings.sharepage
+        My.Settings.Save()
+        Label5.Text = "Copy URL"
+        Dim open As New System.Drawing.Size(290, 508)
+        Dim closed As New System.Drawing.Size(290, 364)
+        If qabbox.Size = open Then
+            qabbox.Size = closed
+        Else
+            qabbox.Size = open
+        End If
 
     End Sub
 
@@ -166,9 +194,36 @@ Public Class tabs
         browser.Focus()
     End Sub
 
+    Private Sub PictureBox2_Click_1(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        browser.ShowDevTools()
+        qabbox.Visible = False
+    End Sub
+
     Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
         browser.Print()
+        Dim closed As New System.Drawing.Size(290, 364)
+        qabbox.Size = closed
         qabbox.Visible = False
+    End Sub
+
+    Private Sub PictureBox4_Click_1(sender As Object, e As EventArgs) Handles PictureBox4.Click
+        Clipboard.SetText(My.Settings.sharepage)
+        Label5.Text = "  Copied!"
+    End Sub
+
+    Private Sub PictureBox3_Click_1(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        My.Settings.tweetpage = "https://twitter.com/intent/tweet?text=I%20found%20this%20awesome%20website%20using%20Opaque%20by%20Emposoft!%20" & My.Settings.sharepage
+        My.Settings.newpage = My.Settings.tweetpage
+        Dim closed As New System.Drawing.Size(290, 364)
+        qabbox.Size = closed
+        main.InternalNewTab.PerformClick()
+        qabbox.Visible = False
+    End Sub
+    Private Sub browser_LoadError(sender As Object, e As EventArgs) Handles browser.LoadError
+        If My.Computer.Network.IsAvailable = False Then
+            Dim errorpage As String = "<!DOCTYPE html><html><head><meta content='en-us' http-equiv='Content-Language'><meta content='text/html; charset=utf-8' http-equiv='Content-Type'><title>Error</title><style type='text/css'>.auto-style1 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 50pt;	text-align: center;}.auto-style3 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 25pt;	text-align: center;}.auto-style4 {	font-size: medium;}.auto-style5 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	text-align: center;}</style></head><body><p class='auto-style1'>:(<span class='auto-style2'>&nbsp;&nbsp; </span></p><p class='auto-style3'>Seems like you are not connected to the Internet.<br><span class='auto-style4'><br></span></p><p class='auto-style5'><strong></strong></p><p class='auto-style5'></p><p class='auto-style5'></p><p class='auto-style5'></p></body></html>"
+            browser.LoadHtml(errorpage, "http://OpaqueNoInternet/")
+        End If
     End Sub
 End Class
 Public Class LifeSpanHandler
@@ -207,4 +262,89 @@ Public Class DownloadHandler
         My.Settings.DownloadSpeed = downloadItem.CurrentSpeed
         Return False
     End Function
+End Class
+Public Class RequestHandler
+    Implements IRequestHandler
+    Private Function IRequestHandler_OnBeforeBrowse(browser As IWebBrowser, request As IRequest, isRedirect As Boolean, isMainFrame As Boolean) As Boolean Implements IRequestHandler.OnBeforeBrowse
+
+        Return False
+    End Function
+
+    Private Function IRequestHandler_OnCertificateError(browser As IWebBrowser, errorCode As CefErrorCode, requestUrl As String) As Boolean Implements IRequestHandler.OnCertificateError
+        Return False
+    End Function
+
+    Private Sub IRequestHandler_OnPluginCrashed(browser As IWebBrowser, pluginPath As String) Implements IRequestHandler.OnPluginCrashed
+        ' TODO: Add your own code here for handling scenarios where a plugin crashed, for one reason or another.
+
+    End Sub
+
+    Private Function IRequestHandler_OnBeforeResourceLoad(browser As IWebBrowser, request As IRequest, isMainFrame As Boolean) As CefReturnValue Implements IRequestHandler.OnBeforeResourceLoad
+        Dim headers = request.Headers
+        headers("DNT") = "1"
+        request.Headers = headers
+        Return False
+    End Function
+
+    Private Function IRequestHandler_GetAuthCredentials(browser As IWebBrowser, isProxy As Boolean, host As String, port As Integer, realm As String, scheme As String, _
+        ByRef username As String, ByRef password As String) As Boolean Implements IRequestHandler.GetAuthCredentials
+        Return False
+    End Function
+
+    Private Function IRequestHandler_OnBeforePluginLoad(browser As IWebBrowser, url As String, policyUrl As String, info As WebPluginInfo) As Boolean Implements IRequestHandler.OnBeforePluginLoad
+        Dim blockPluginLoad As Boolean = False
+
+        ' Enable next line to demo: Block any plugin with "flash" in its name
+        ' try it out with e.g. http://www.youtube.com/watch?v=0uBOtQOO70Y
+        'blockPluginLoad = info.Name.ToLower().Contains("flash");
+        Return False
+    End Function
+
+    Private Sub IRequestHandler_OnRenderProcessTerminated(browser As IWebBrowser, status As CefTerminationStatus) Implements IRequestHandler.OnRenderProcessTerminated
+        'MsgBox("Render Terminated")
+    End Sub
+    Public Class LocalSchemeHandler
+        Implements ISchemeHandler
+        Public Function ProcessRequestAsync(request As IRequest, response As ISchemeHandlerResponse, requestCompletedCallback As OnRequestCompletedHandler) As Boolean Implements ISchemeHandler.ProcessRequestAsync
+            Dim u As New Uri(request.Url)
+            Dim file__1 As [String] = u.Authority + u.AbsolutePath
+
+            If File.Exists(file__1) Then
+                Dim bytes As [Byte]() = File.ReadAllBytes(file__1)
+                response.ResponseStream = New MemoryStream(bytes)
+                Select Case Path.GetExtension(file__1)
+                    Case ".html"
+                        response.MimeType = "text/html"
+                        Exit Select
+                    Case ".js"
+                        response.MimeType = "text/javascript"
+                        Exit Select
+                    Case ".png"
+                        response.MimeType = "image/png"
+                        Exit Select
+                    Case ".appcache", ".manifest"
+                        response.MimeType = "text/cache-manifest"
+                        Exit Select
+                    Case Else
+                        response.MimeType = "application/octet-stream"
+                        Exit Select
+                End Select
+                requestCompletedCallback()
+                Return True
+            End If
+            Return False
+        End Function
+    End Class
+    Public Class LocalSchemeHandlerFactory
+        Implements ISchemeHandlerFactory
+        Public Function Create() As ISchemeHandler Implements ISchemeHandlerFactory.Create
+            Return New LocalSchemeHandler()
+        End Function
+
+        Public Shared ReadOnly Property SchemeName() As String
+            Get
+                Return "local"
+            End Get
+        End Property
+    End Class
 End Class

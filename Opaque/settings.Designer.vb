@@ -24,7 +24,7 @@ Partial Class settings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settings))
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.OpaqueSettingsControl1 = New Opaque.OpaqueSettingsControl()
+        Me.OpaqueSettingsControl1 = New Opaque.OpaqueSettingsControl1()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -61,13 +61,14 @@ Partial Class settings
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.PictureBox23 = New System.Windows.Forms.PictureBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.PictureBox23 = New System.Windows.Forms.PictureBox()
         Me.PictureBox20 = New System.Windows.Forms.PictureBox()
         Me.OpaqueSettingsControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -279,7 +280,6 @@ Partial Class settings
         Me.PrivacyModeSlider.Size = New System.Drawing.Size(72, 33)
         Me.PrivacyModeSlider.TabIndex = 29
         Me.PrivacyModeSlider.TabStop = False
-        Me.PrivacyModeSlider.Visible = False
         '
         'Label9
         '
@@ -289,7 +289,6 @@ Partial Class settings
         Me.Label9.Size = New System.Drawing.Size(361, 13)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Privacy mode will automatically clear the cookies and cache when you exit."
-        Me.Label9.Visible = False
         '
         'Button3
         '
@@ -318,7 +317,6 @@ Partial Class settings
         Me.PictureBox25.Size = New System.Drawing.Size(257, 62)
         Me.PictureBox25.TabIndex = 27
         Me.PictureBox25.TabStop = False
-        Me.PictureBox25.Visible = False
         '
         'PictureBox24
         '
@@ -482,19 +480,39 @@ Partial Class settings
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.White
+        Me.TabPage1.Controls.Add(Me.Button4)
+        Me.TabPage1.Controls.Add(Me.PictureBox23)
         Me.TabPage1.Controls.Add(Me.Button2)
         Me.TabPage1.Controls.Add(Me.Label7)
         Me.TabPage1.Controls.Add(Me.TextBox2)
         Me.TabPage1.Controls.Add(Me.Label6)
         Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.Label5)
-        Me.TabPage1.Controls.Add(Me.PictureBox23)
         Me.TabPage1.Controls.Add(Me.PictureBox20)
         Me.TabPage1.Location = New System.Drawing.Point(140, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Size = New System.Drawing.Size(602, 410)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Advanced"
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(66, 288)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(239, 23)
+        Me.Button4.TabIndex = 33
+        Me.Button4.Text = "Click here to configure Opaque's engine"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'PictureBox23
+        '
+        Me.PictureBox23.BackgroundImage = CType(resources.GetObject("PictureBox23.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox23.Location = New System.Drawing.Point(24, 208)
+        Me.PictureBox23.Name = "PictureBox23"
+        Me.PictureBox23.Size = New System.Drawing.Size(133, 62)
+        Me.PictureBox23.TabIndex = 32
+        Me.PictureBox23.TabStop = False
         '
         'Button2
         '
@@ -549,17 +567,6 @@ Partial Class settings
         Me.Label5.Size = New System.Drawing.Size(98, 13)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Choose a location: "
-        '
-        'PictureBox23
-        '
-        Me.PictureBox23.BackgroundImage = CType(resources.GetObject("PictureBox23.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox23.Location = New System.Drawing.Point(24, 191)
-        Me.PictureBox23.Name = "PictureBox23"
-        Me.PictureBox23.Size = New System.Drawing.Size(240, 62)
-        Me.PictureBox23.TabIndex = 25
-        Me.PictureBox23.TabStop = False
-        Me.PictureBox23.Visible = False
         '
         'PictureBox20
         '
@@ -623,7 +630,7 @@ Partial Class settings
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents OpaqueSettingsControl1 As Opaque.OpaqueSettingsControl
+    Friend WithEvents OpaqueSettingsControl1 As Opaque.OpaqueSettingsControl1
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
@@ -652,7 +659,6 @@ Partial Class settings
     Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox23 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox20 As System.Windows.Forms.PictureBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -669,4 +675,6 @@ Partial Class settings
     Friend WithEvents PrivacyModeSlider As System.Windows.Forms.PictureBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents PictureBox23 As System.Windows.Forms.PictureBox
 End Class
