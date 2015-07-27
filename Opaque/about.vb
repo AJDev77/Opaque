@@ -3,7 +3,7 @@
 Public Class about
 
     Private Sub about_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
+
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
@@ -12,8 +12,8 @@ Public Class about
             Label2.Text = "Checking for updates..."
             Label2.Refresh()
             Dim web As New WebClient
-            Dim update As String = web.DownloadString("http://updates.opaquebrowser.com/version.txt")
-            If update.Contains("1.1.0") Then
+            Dim update As String = web.DownloadString("https://updates.opaquebrowser.com/version.txt")
+            If update.Contains("1.0.1") Then
                 'There is no update
                 Label2.Text = "You have the latest version."
             Else
