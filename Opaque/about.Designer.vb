@@ -60,7 +60,7 @@ Partial Class about
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Version 1.1.0"
+        Me.Label1.Text = "Version 1.0.1"
         '
         'Label2
         '

@@ -29,6 +29,7 @@ Partial Class tabs
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(tabs))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.favicon = New System.Windows.Forms.PictureBox()
         Me.stopbtn = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -60,6 +61,7 @@ Partial Class tabs
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ForwardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
+        CType(Me.favicon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.qab, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.brrefresh, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +85,7 @@ Partial Class tabs
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel1.Controls.Add(Me.favicon)
         Me.Panel1.Controls.Add(Me.stopbtn)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.TextBox1)
@@ -96,6 +99,15 @@ Partial Class tabs
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1057, 47)
         Me.Panel1.TabIndex = 0
+        '
+        'favicon
+        '
+        Me.favicon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.favicon.Location = New System.Drawing.Point(131, 10)
+        Me.favicon.Name = "favicon"
+        Me.favicon.Size = New System.Drawing.Size(28, 28)
+        Me.favicon.TabIndex = 6
+        Me.favicon.TabStop = False
         '
         'stopbtn
         '
@@ -122,9 +134,9 @@ Partial Class tabs
         '
         Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(133, 12)
+        Me.TextBox1.Location = New System.Drawing.Point(164, 14)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(833, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(802, 20)
         Me.TextBox1.TabIndex = 1
         '
         'qab
@@ -395,6 +407,7 @@ Partial Class tabs
         Me.Text = "tab"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.favicon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.stopbtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.qab, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.brrefresh, System.ComponentModel.ISupportInitialize).EndInit()
@@ -546,13 +559,13 @@ Partial Class tabs
         Dim osversion As String = My.Computer.Info.OSVersion.ToString
         Dim answer As String = osversion.Substring(0, 3)
         Dim cefsettings As New CefSharp.CefSettings
-        cefsettings.UserAgent = ("Mozilla/5.0 (Windows NT " & answer & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.1 Chrome/41.0.2272.104 Safari/537.36")
+        cefsettings.UserAgent = ("Mozilla/5.0 (Windows NT " & answer & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.0.1 Chrome/41.0.2272.104 Safari/537.36")
         cefsettings.IgnoreCertificateErrors = False
-        cefsettings.LogSeverity = CefSharp.LogSeverity.Verbose
-        cefsettings.RegisterScheme(New CefCustomScheme() With { _
-    .SchemeName = LocalSchemeHandlerFactory.SchemeName, _
-    .SchemeHandlerFactory = New LocalSchemeHandlerFactory() _
-})
+        cefsettings.LogSeverity = CefSharp.LogSeverity.Disable
+        'cefsettings.RegisterScheme(New CefCustomScheme() With { _
+        '.SchemeName = LocalSchemeHandlerFactory.SchemeName, _
+        '.SchemeHandlerFactory = New LocalSchemeHandlerFactory() _
+        '})
         If My.Settings.CacheLocation = "DEFAULT" Then
             Dim appcachepath As String = Application.StartupPath & "/cache/"
             cefsettings.CachePath = appcachepath
@@ -575,7 +588,7 @@ Partial Class tabs
             browser.DownloadHandler = New DownloadHandler
             browser.LifeSpanHandler = New LifeSpanHandler
             'browser.RequestHandler = New RequestHandler
-
+            'browser.MenuHandler = New MenuHandler
             'Me.browser.FocusHandler = vbNull.
 
         Catch ex As Exception
@@ -614,4 +627,5 @@ Partial Class tabs
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents favicon As System.Windows.Forms.PictureBox
 End Class

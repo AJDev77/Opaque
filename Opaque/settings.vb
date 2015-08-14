@@ -165,6 +165,10 @@ Public Class settings
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         engine.Show()
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        TextBox1.Text = My.Settings.currentpage
+    End Sub
 End Class
 Public Class OpaqueSettingsControl1
     Inherits TabControl

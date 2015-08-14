@@ -9,7 +9,7 @@
       <Value Profile="(Default)">https://duckduckgo.com/?q=</Value>
     </Setting>
     <Setting Name="homepage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://opaquebrowser.com/start</Value>
+      <Value Profile="(Default)">http://opaquebrowser.com/start</Value>
     </Setting>
     <Setting Name="searchname" Type="System.String" Scope="User">
       <Value Profile="(Default)">DuckDuckGo</Value>
@@ -106,6 +106,9 @@
     </Setting>
     <Setting Name="bpressed" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="currentpage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://emposoft.com</Value>
     </Setting>
   </Settings>
 </SettingsFile>

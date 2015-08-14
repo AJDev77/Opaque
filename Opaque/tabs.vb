@@ -1,12 +1,12 @@
 ﻿Imports CefSharp
 Imports System.IO
+Imports System.Net
 
 Public Class tabs
 
     Dim WithEvents browser As CefSharp.WinForms.ChromiumWebBrowser
 
     Private Sub tabs_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-
 
     End Sub
 
@@ -26,6 +26,7 @@ Public Class tabs
         Try
             Dim websitename As String = browser.Title.ToString
             Me.Invoke(DirectCast(Sub() Parent.Text = (websitename), MethodInvoker))
+
         Catch ex As Exception
             'Don't need to warn the user that the title did not show up. Error mostly happens when user closes browser while getting the name.
         End Try
@@ -36,6 +37,21 @@ Public Class tabs
                       End Sub)
         Catch ex As Exception
             'Been noticing some crashing going on, so I put this in a Try.
+        End Try
+        Dim url As New Uri(browser.Address.ToString)
+        Try
+            If url.HostNameType = UriHostNameType.Dns Then
+                Dim favicon As String = "http://" & url.Host & "/favicon.ico"
+                Dim req As WebRequest = HttpWebRequest.Create(favicon)
+                Using res As HttpWebResponse = CType(req.GetResponse(), HttpWebResponse)
+                    Dim stream As Stream = res.GetResponseStream
+                    Dim fav As Image = Image.FromStream(stream)
+
+                    Me.favicon.BackgroundImage = fav
+                End Using
+            End If
+
+        Catch ex As Exception
         End Try
     End Sub
     Private Sub browser_Testing(sender As Object, e As EventArgs) Handles browser.FrameLoadStart
@@ -106,20 +122,20 @@ Public Class tabs
             Else
                 If TextBox1.Text.Contains("local://") = True Then
                     browser.Load(TextBox1.Text)
-            Else
-                If TextBox1.Text.Contains(" ") = True Then
-                    TextBox1.Text = TextBox1.Text.Replace(" ", "+")
-                    browser.Load(My.Settings.search.ToString & TextBox1.Text)
                 Else
-                    If TextBox1.Text.Contains(" ") = False Then
-                        If TextBox1.Text.Contains(".") Then
-                            browser.Load("http://" & TextBox1.Text)
-                        Else
-                            TextBox1.Text = TextBox1.Text.Replace(" ", "+")
-                            browser.Load(My.Settings.search.ToString & TextBox1.Text)
+                    If TextBox1.Text.Contains(" ") = True Then
+                        Dim searchtxt As String = TextBox1.Text.Replace(" ", "+")
+                        browser.Load(My.Settings.search.ToString & searchtxt)
+                    Else
+                        If TextBox1.Text.Contains(" ") = False Then
+                            If TextBox1.Text.Contains(".") Then
+                                browser.Load("http://" & TextBox1.Text)
+                            Else
+                                TextBox1.Text = TextBox1.Text.Replace(" ", "+")
+                                browser.Load(My.Settings.search.ToString & TextBox1.Text)
+                            End If
                         End If
                     End If
-                End If
                 End If
             End If
         End If
@@ -149,6 +165,7 @@ Public Class tabs
     Private Sub PictureBox7_Click(sender As Object, e As EventArgs) Handles PictureBox7.Click
         settings.Show()
         qabbox.Visible = False
+        My.Settings.currentpage = browser.Address.ToString
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles home.Click
@@ -266,7 +283,6 @@ End Class
 Public Class RequestHandler
     Implements IRequestHandler
     Private Function IRequestHandler_OnBeforeBrowse(browser As IWebBrowser, request As IRequest, isRedirect As Boolean, isMainFrame As Boolean) As Boolean Implements IRequestHandler.OnBeforeBrowse
-
         Return False
     End Function
 
@@ -282,7 +298,7 @@ Public Class RequestHandler
     Private Function IRequestHandler_OnBeforeResourceLoad(browser As IWebBrowser, request As IRequest, isMainFrame As Boolean) As CefReturnValue Implements IRequestHandler.OnBeforeResourceLoad
         Dim headers = request.Headers
         headers("DNT") = "1"
-        request.Headers = headers
+        request.Headers.Add(headers)
         Return False
     End Function
 
@@ -301,7 +317,7 @@ Public Class RequestHandler
     End Function
 
     Private Sub IRequestHandler_OnRenderProcessTerminated(browser As IWebBrowser, status As CefTerminationStatus) Implements IRequestHandler.OnRenderProcessTerminated
-        'MsgBox("Render Terminated")
+        MsgBox("Render Terminated")
     End Sub
     Public Class LocalSchemeHandler
         Implements ISchemeHandler
@@ -343,8 +359,19 @@ Public Class RequestHandler
 
         Public Shared ReadOnly Property SchemeName() As String
             Get
-                Return "local"
+                Return "local://"
             End Get
         End Property
     End Class
+
+
+    Public Class MenuHandler
+        Implements IMenuHandler
+
+        Public Function OnBeforeContextMenu(browser As IWebBrowser, parameters As IContextMenuParams) As Boolean Implements IMenuHandler.OnBeforeContextMenu
+            
+            Return True
+        End Function
+    End Class
+
 End Class

@@ -26,6 +26,7 @@ Partial Class settings
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpaqueSettingsControl1 = New Opaque.OpaqueSettingsControl1()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -123,6 +124,7 @@ Partial Class settings
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.White
+        Me.TabPage2.Controls.Add(Me.Button5)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.TextBox1)
         Me.TabPage2.Controls.Add(Me.Label2)
@@ -141,6 +143,15 @@ Partial Class settings
         Me.TabPage2.Size = New System.Drawing.Size(602, 410)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "General"
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(22, 339)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(94, 23)
+        Me.Button5.TabIndex = 28
+        Me.Button5.Text = "Current Page"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -210,9 +221,9 @@ Partial Class settings
         '
         Me.PictureBox4.BackgroundImage = CType(resources.GetObject("PictureBox4.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox4.Location = New System.Drawing.Point(414, 112)
+        Me.PictureBox4.Location = New System.Drawing.Point(417, 123)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(140, 59)
+        Me.PictureBox4.Size = New System.Drawing.Size(124, 45)
         Me.PictureBox4.TabIndex = 21
         Me.PictureBox4.TabStop = False
         '
@@ -232,7 +243,7 @@ Partial Class settings
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox6.Location = New System.Drawing.Point(59, 112)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(96, 60)
+        Me.PictureBox6.Size = New System.Drawing.Size(101, 65)
         Me.PictureBox6.TabIndex = 18
         Me.PictureBox6.TabStop = False
         '
@@ -280,6 +291,7 @@ Partial Class settings
         Me.PrivacyModeSlider.Size = New System.Drawing.Size(72, 33)
         Me.PrivacyModeSlider.TabIndex = 29
         Me.PrivacyModeSlider.TabStop = False
+        Me.PrivacyModeSlider.Visible = False
         '
         'Label9
         '
@@ -289,6 +301,7 @@ Partial Class settings
         Me.Label9.Size = New System.Drawing.Size(361, 13)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Privacy mode will automatically clear the cookies and cache when you exit."
+        Me.Label9.Visible = False
         '
         'Button3
         '
@@ -317,6 +330,7 @@ Partial Class settings
         Me.PictureBox25.Size = New System.Drawing.Size(257, 62)
         Me.PictureBox25.TabIndex = 27
         Me.PictureBox25.TabStop = False
+        Me.PictureBox25.Visible = False
         '
         'PictureBox24
         '
@@ -630,20 +644,17 @@ Partial Class settings
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents OpaqueSettingsControl1 As Opaque.OpaqueSettingsControl1
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents PictureBox23 As System.Windows.Forms.PictureBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox20 As System.Windows.Forms.PictureBox
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox22 As System.Windows.Forms.PictureBox
@@ -659,22 +670,26 @@ Partial Class settings
     Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox20 As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents PictureBox24 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox25 As System.Windows.Forms.PictureBox
     Friend WithEvents PrivacyModeSlider As System.Windows.Forms.PictureBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox25 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox24 As System.Windows.Forms.PictureBox
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox23 As System.Windows.Forms.PictureBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents OpaqueSettingsControl1 As Opaque.OpaqueSettingsControl1
 End Class
