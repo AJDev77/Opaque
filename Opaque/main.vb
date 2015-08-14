@@ -26,6 +26,7 @@ Public Class main
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        My.Settings.newpage = My.Settings.homepage
         Dim tab As New TabPage
         Dim newtab As New tabs
         newtab.Show()

@@ -11,6 +11,7 @@
 •  Improved search detection and search processing
 •  Upgraded to Cefsharp 41.0.1
 •  Added favicon next to address bar
+•  Fixed issue where homepage would not take effect if you don't restart Opaque.
 
 
 1.0.0-
