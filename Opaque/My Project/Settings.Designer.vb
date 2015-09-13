@@ -486,6 +486,30 @@ Namespace My
                 Me("currentpage") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DownloadURL() As String
+            Get
+                Return CType(Me("DownloadURL"),String)
+            End Get
+            Set
+                Me("DownloadURL") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DownloadLocalFilePath() As String
+            Get
+                Return CType(Me("DownloadLocalFilePath"),String)
+            End Get
+            Set
+                Me("DownloadLocalFilePath") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -559,9 +559,9 @@ Partial Class tabs
         Dim osversion As String = My.Computer.Info.OSVersion.ToString
         Dim answer As String = osversion.Substring(0, 3)
         Dim cefsettings As New CefSharp.CefSettings
-        cefsettings.UserAgent = ("Mozilla/5.0 (Windows NT " & answer & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.0.1 Chrome/41.0.2272.104 Safari/537.36")
+        cefsettings.UserAgent = ("Mozilla/5.0 (Windows NT " & answer & ") AppleWebKit/537.36 (KHTML, like Gecko) Opaque/1.1.0 Chrome/41.0.2272.104 Safari/537.36")
         cefsettings.IgnoreCertificateErrors = False
-        cefsettings.LogSeverity = CefSharp.LogSeverity.Disable
+        cefsettings.LogSeverity = CefSharp.LogSeverity.Verbose
         'cefsettings.RegisterScheme(New CefCustomScheme() With { _
         '.SchemeName = LocalSchemeHandlerFactory.SchemeName, _
         '.SchemeHandlerFactory = New LocalSchemeHandlerFactory() _
@@ -585,15 +585,14 @@ Partial Class tabs
             Me.Panel2.Controls.Add(Me.browser)
             Me.browser.Dock = DockStyle.Fill
             Me.browser.Focus()
-            browser.DownloadHandler = New DownloadHandler
+            browser.DownloadHandler = New OpaqueDownloadHandler
             browser.LifeSpanHandler = New LifeSpanHandler
-            'browser.RequestHandler = New RequestHandler
+            browser.RequestHandler = New RequestHandler
             'browser.MenuHandler = New MenuHandler
             'Me.browser.FocusHandler = vbNull.
 
         Catch ex As Exception
-            MsgBox("There was an error initializing Opaque. Please reinstall Opaque. Error details will come up next.")
-            MsgBox(ex.Message)
+            MsgBox("There was an error initializing Opaque. Please reinstall Opaque. Error details: " & ex.Message)
         End Try
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

@@ -13,7 +13,7 @@ Public Class about
             Label2.Refresh()
             Dim web As New WebClient
             Dim update As String = web.DownloadString("https://updates.opaquebrowser.com/version.txt")
-            If update.Contains("1.0.1") Then
+            If update.Contains("1.1.0") Then
                 'There is no update
                 Label2.Text = "You have the latest version."
             Else

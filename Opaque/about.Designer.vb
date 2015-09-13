@@ -58,9 +58,9 @@ Partial Class about
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(267, 88)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Version 1.0.1"
+        Me.Label1.Text = "Version 1.1"
         '
         'Label2
         '
@@ -87,9 +87,9 @@ Partial Class about
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(-2, 249)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 13)
+        Me.Label3.Size = New System.Drawing.Size(86, 13)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "build-stable/012" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label3.Text = "build-stable/027r" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label3.Visible = False
         '
         'about

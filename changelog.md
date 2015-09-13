@@ -1,3 +1,19 @@
+v1.1-
+
+•  New and improved download manager
+      o	Includes a new look and more features
+      o	It continues to update you on the progress
+      o	New cancel button
+      o	Adds our own file extention to it (while downloading),
+	to prevent you from opening it before it finishes.
+
+•  Added a Do Not Track (DNT) request in the header
+      o	This tells websites that you don't want to be
+	tracked. Websites don't always follow this though,
+	which is why we are working on more features that
+	will force websites to follow it by blocking all
+	trackers.
+
 1.0.1-
 
 •  Added DevTools

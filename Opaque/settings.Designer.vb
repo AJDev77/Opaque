@@ -286,7 +286,7 @@ Partial Class settings
         '
         Me.PrivacyModeSlider.BackgroundImage = Global.Opaque.My.Resources.Resources.red_slider
         Me.PrivacyModeSlider.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PrivacyModeSlider.Location = New System.Drawing.Point(26, 244)
+        Me.PrivacyModeSlider.Location = New System.Drawing.Point(254, 384)
         Me.PrivacyModeSlider.Name = "PrivacyModeSlider"
         Me.PrivacyModeSlider.Size = New System.Drawing.Size(72, 33)
         Me.PrivacyModeSlider.TabIndex = 29
@@ -296,7 +296,7 @@ Partial Class settings
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 214)
+        Me.Label9.Location = New System.Drawing.Point(240, 354)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(361, 13)
         Me.Label9.TabIndex = 28
@@ -325,7 +325,7 @@ Partial Class settings
         '
         Me.PictureBox25.BackgroundImage = CType(resources.GetObject("PictureBox25.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox25.Location = New System.Drawing.Point(26, 149)
+        Me.PictureBox25.Location = New System.Drawing.Point(254, 289)
         Me.PictureBox25.Name = "PictureBox25"
         Me.PictureBox25.Size = New System.Drawing.Size(257, 62)
         Me.PictureBox25.TabIndex = 27

@@ -236,12 +236,18 @@ Public Class tabs
         main.InternalNewTab.PerformClick()
         qabbox.Visible = False
     End Sub
-    Private Sub browser_LoadError(sender As Object, e As EventArgs) Handles browser.LoadError
-        If My.Computer.Network.IsAvailable = False Then
-            Dim errorpage As String = "<!DOCTYPE html><html><head><meta content='en-us' http-equiv='Content-Language'><meta content='text/html; charset=utf-8' http-equiv='Content-Type'><title>Error</title><style type='text/css'>.auto-style1 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 50pt;	text-align: center;}.auto-style3 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 25pt;	text-align: center;}.auto-style4 {	font-size: medium;}.auto-style5 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	text-align: center;}</style></head><body><p class='auto-style1'>:(<span class='auto-style2'>&nbsp;&nbsp; </span></p><p class='auto-style3'>Seems like you are not connected to the Internet.<br><span class='auto-style4'><br></span></p><p class='auto-style5'><strong></strong></p><p class='auto-style5'></p><p class='auto-style5'></p><p class='auto-style5'></p></body></html>"
-            browser.LoadHtml(errorpage, "http://OpaqueNoInternet/")
+    Private Sub browser_LoadError(sender As Object, e As CefSharp.LoadErrorEventArgs) Handles browser.LoadError
+
+        If e.ErrorCode = CefErrorCode.InternetDisconnected = True Then
+            Dim errorpageinternet As String = "<!DOCTYPE html><html><head><meta content='en-us' http-equiv='Content-Language'><meta content='text/html; charset=utf-8' http-equiv='Content-Type'><title>Error</title><style type='text/css'>.auto-style1 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 50pt;	text-align: center;}.auto-style3 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-size: 25pt;	text-align: center;}.auto-style4 {	font-size: medium;}.auto-style5 {	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	text-align: center;}</style></head><body><p class='auto-style1'>:(<span class='auto-style2'>&nbsp;&nbsp; </span></p><p class='auto-style3'>Seems like you are not connected to the Internet.<br><span class='auto-style4'><br></span></p><p class='auto-style5'><strong></strong></p><p class='auto-style5'></p><p class='auto-style5'></p><p class='auto-style5'></p></body></html>"
+            browser.LoadHtml(errorpageinternet, "http://OpaqueNoInternet/")
         End If
+
     End Sub
+    Public Function OnBeforeResourceLoad(browser As IWebBrowser) As Boolean
+
+        Return False
+    End Function
 End Class
 Public Class LifeSpanHandler
     Implements ILifeSpanHandler
@@ -261,32 +267,43 @@ Public Class LifeSpanHandler
 
     End Sub
 End Class
-Public Class DownloadHandler
+Public Class OpaqueDownloadHandler
     Implements IDownloadHandler
     Public Function OnBeforeDownload(downloadItem As DownloadItem, ByRef downloadPath As String, ByRef showDialog As Boolean) As Boolean Implements IDownloadHandler.OnBeforeDownload
         downloadPath = downloadItem.SuggestedFileName
-        downloading.Show()
-        showDialog = True
+        Dim SaveFile As New SaveFileDialog
+        SaveFile.FileName = downloadPath
+        SaveFile.Filter = "All files (*.*)|*.*"
+        SaveFile.ShowDialog()
+        If SaveFile.FileName = downloadPath = True Then
+            'This means that the user has cancelled the download
+        Else
+            My.Settings.DownloadLocalFilePath = SaveFile.FileName
+            My.Settings.DownloadURL = downloadItem.Url
 
-        Return True
+            downloading.Show()
+        End If
+        'Gets rid of the CEF download
+        Return False
     End Function
 
     Public Function OnDownloadUpdated1(downloadItem As DownloadItem) As Boolean Implements IDownloadHandler.OnDownloadUpdated
-        My.Settings.DownloadPercent = downloadItem.PercentComplete.ToString
-        Dim percentcomplete As Integer = My.Settings.DownloadPercent * 5
-        My.Settings.DownloadReB = downloadItem.ReceivedBytes
-        My.Settings.DownloadTotB = downloadItem.TotalBytes
-        My.Settings.DownloadSpeed = downloadItem.CurrentSpeed
+        
+
         Return False
     End Function
 End Class
+
+
 Public Class RequestHandler
     Implements IRequestHandler
-    Private Function IRequestHandler_OnBeforeBrowse(browser As IWebBrowser, request As IRequest, isRedirect As Boolean, isMainFrame As Boolean) As Boolean Implements IRequestHandler.OnBeforeBrowse
+    Private Function OnBeforeBrowse(browser As IWebBrowser, request As IRequest, isRedirect As Boolean, isMainFrame As Boolean) As Boolean Implements IRequestHandler.OnBeforeBrowse
+
         Return False
     End Function
 
     Private Function IRequestHandler_OnCertificateError(browser As IWebBrowser, errorCode As CefErrorCode, requestUrl As String) As Boolean Implements IRequestHandler.OnCertificateError
+
         Return False
     End Function
 
@@ -298,8 +315,9 @@ Public Class RequestHandler
     Private Function IRequestHandler_OnBeforeResourceLoad(browser As IWebBrowser, request As IRequest, isMainFrame As Boolean) As CefReturnValue Implements IRequestHandler.OnBeforeResourceLoad
         Dim headers = request.Headers
         headers("DNT") = "1"
-        request.Headers.Add(headers)
-        Return False
+        request.Headers = headers
+        Return CefReturnValue.Continue
+
     End Function
 
     Private Function IRequestHandler_GetAuthCredentials(browser As IWebBrowser, isProxy As Boolean, host As String, port As Integer, realm As String, scheme As String, _
@@ -313,65 +331,66 @@ Public Class RequestHandler
         ' Enable next line to demo: Block any plugin with "flash" in its name
         ' try it out with e.g. http://www.youtube.com/watch?v=0uBOtQOO70Y
         'blockPluginLoad = info.Name.ToLower().Contains("flash");
-        Return False
+        Return blockPluginLoad
     End Function
 
     Private Sub IRequestHandler_OnRenderProcessTerminated(browser As IWebBrowser, status As CefTerminationStatus) Implements IRequestHandler.OnRenderProcessTerminated
         MsgBox("Render Terminated")
     End Sub
-    Public Class LocalSchemeHandler
-        Implements ISchemeHandler
-        Public Function ProcessRequestAsync(request As IRequest, response As ISchemeHandlerResponse, requestCompletedCallback As OnRequestCompletedHandler) As Boolean Implements ISchemeHandler.ProcessRequestAsync
-            Dim u As New Uri(request.Url)
-            Dim file__1 As [String] = u.Authority + u.AbsolutePath
-
-            If File.Exists(file__1) Then
-                Dim bytes As [Byte]() = File.ReadAllBytes(file__1)
-                response.ResponseStream = New MemoryStream(bytes)
-                Select Case Path.GetExtension(file__1)
-                    Case ".html"
-                        response.MimeType = "text/html"
-                        Exit Select
-                    Case ".js"
-                        response.MimeType = "text/javascript"
-                        Exit Select
-                    Case ".png"
-                        response.MimeType = "image/png"
-                        Exit Select
-                    Case ".appcache", ".manifest"
-                        response.MimeType = "text/cache-manifest"
-                        Exit Select
-                    Case Else
-                        response.MimeType = "application/octet-stream"
-                        Exit Select
-                End Select
-                requestCompletedCallback()
-                Return True
-            End If
-            Return False
-        End Function
-    End Class
-    Public Class LocalSchemeHandlerFactory
-        Implements ISchemeHandlerFactory
-        Public Function Create() As ISchemeHandler Implements ISchemeHandlerFactory.Create
-            Return New LocalSchemeHandler()
-        End Function
-
-        Public Shared ReadOnly Property SchemeName() As String
-            Get
-                Return "local://"
-            End Get
-        End Property
-    End Class
+End Class
 
 
-    Public Class MenuHandler
-        Implements IMenuHandler
+Public Class LocalSchemeHandler
+    Implements ISchemeHandler
+    Public Function ProcessRequestAsync(request As IRequest, response As ISchemeHandlerResponse, requestCompletedCallback As OnRequestCompletedHandler) As Boolean Implements ISchemeHandler.ProcessRequestAsync
+        Dim u As New Uri(request.Url)
+        Dim file__1 As [String] = u.Authority + u.AbsolutePath
 
-        Public Function OnBeforeContextMenu(browser As IWebBrowser, parameters As IContextMenuParams) As Boolean Implements IMenuHandler.OnBeforeContextMenu
-            
+        If File.Exists(file__1) Then
+            Dim bytes As [Byte]() = File.ReadAllBytes(file__1)
+            response.ResponseStream = New MemoryStream(bytes)
+            Select Case Path.GetExtension(file__1)
+                Case ".html"
+                    response.MimeType = "text/html"
+                    Exit Select
+                Case ".js"
+                    response.MimeType = "text/javascript"
+                    Exit Select
+                Case ".png"
+                    response.MimeType = "image/png"
+                    Exit Select
+                Case ".appcache", ".manifest"
+                    response.MimeType = "text/cache-manifest"
+                    Exit Select
+                Case Else
+                    response.MimeType = "application/octet-stream"
+                    Exit Select
+            End Select
+            requestCompletedCallback()
             Return True
-        End Function
-    End Class
+        End If
+        Return False
+    End Function
+End Class
+Public Class LocalSchemeHandlerFactory
+    Implements ISchemeHandlerFactory
+    Public Function Create() As ISchemeHandler Implements ISchemeHandlerFactory.Create
+        Return New LocalSchemeHandler()
+    End Function
 
+    Public Shared ReadOnly Property SchemeName() As String
+        Get
+            Return "local://"
+        End Get
+    End Property
+End Class
+
+
+Public Class MenuHandler
+    Implements IMenuHandler
+
+    Public Function OnBeforeContextMenu(browser As IWebBrowser, parameters As IContextMenuParams) As Boolean Implements IMenuHandler.OnBeforeContextMenu
+
+        Return True
+    End Function
 End Class

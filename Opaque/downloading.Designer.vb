@@ -24,104 +24,148 @@ Partial Class downloading
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(downloading))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ProgressBarLabel1 = New System.Windows.Forms.Label()
+        Me.ProgressBarLabel2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DownloadURL = New System.Windows.Forms.Label()
+        Me.LocalLocation = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(2, 79)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1, 25)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
         '
         'Timer1
         '
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(447, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Yes, this is our download manager. Don't worry, we are working on a new, more fea" & _
-    "tured one."
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 56)
+        Me.Label2.Location = New System.Drawing.Point(8, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 13)
+        Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Progress:"
+        Me.Label2.Text = "Saving to: "
+        '
+        'ProgressBarLabel1
+        '
+        Me.ProgressBarLabel1.AutoSize = True
+        Me.ProgressBarLabel1.Location = New System.Drawing.Point(8, 64)
+        Me.ProgressBarLabel1.Name = "ProgressBarLabel1"
+        Me.ProgressBarLabel1.Size = New System.Drawing.Size(51, 13)
+        Me.ProgressBarLabel1.TabIndex = 4
+        Me.ProgressBarLabel1.Text = "Progress:"
+        '
+        'ProgressBarLabel2
+        '
+        Me.ProgressBarLabel2.AutoSize = True
+        Me.ProgressBarLabel2.Location = New System.Drawing.Point(57, 65)
+        Me.ProgressBarLabel2.Name = "ProgressBarLabel2"
+        Me.ProgressBarLabel2.Size = New System.Drawing.Size(33, 13)
+        Me.ProgressBarLabel2.TabIndex = 5
+        Me.ProgressBarLabel2.Text = "000%"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(8, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "URL:"
+        '
+        'DownloadURL
+        '
+        Me.DownloadURL.AutoSize = True
+        Me.DownloadURL.Location = New System.Drawing.Point(38, 9)
+        Me.DownloadURL.Name = "DownloadURL"
+        Me.DownloadURL.Size = New System.Drawing.Size(67, 13)
+        Me.DownloadURL.TabIndex = 8
+        Me.DownloadURL.Text = "Starting up..."
+        '
+        'LocalLocation
+        '
+        Me.LocalLocation.AutoSize = True
+        Me.LocalLocation.Location = New System.Drawing.Point(63, 33)
+        Me.LocalLocation.Name = "LocalLocation"
+        Me.LocalLocation.Size = New System.Drawing.Size(67, 13)
+        Me.LocalLocation.TabIndex = 9
+        Me.LocalLocation.Text = "Starting up..."
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Location = New System.Drawing.Point(96, 59)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(376, 23)
+        Me.ProgressBar1.TabIndex = 10
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 161)
+        Me.Label3.Location = New System.Drawing.Point(8, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Progress:"
+        Me.Label3.Size = New System.Drawing.Size(134, 13)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Downloaded: 0 MB / 0 MB"
         '
-        'Label4
+        'Button1
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(114, 161)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 13)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Progress:"
+        Me.Button1.Location = New System.Drawing.Point(397, 148)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Cancel"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label5
+        'Button2
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(96, 161)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(12, 13)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "/"
+        Me.Button2.Location = New System.Drawing.Point(397, 148)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Close"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'downloading
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(504, 183)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
+        Me.ClientSize = New System.Drawing.Size(484, 183)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.ProgressBar1)
+        Me.Controls.Add(Me.LocalLocation)
+        Me.Controls.Add(Me.DownloadURL)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ProgressBarLabel2)
+        Me.Controls.Add(Me.ProgressBarLabel1)
+        Me.Controls.Add(Me.Label2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(520, 222)
+        Me.MaximumSize = New System.Drawing.Size(500, 222)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(520, 222)
+        Me.MinimumSize = New System.Drawing.Size(500, 222)
         Me.Name = "downloading"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Download"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ProgressBarLabel1 As System.Windows.Forms.Label
+    Friend WithEvents ProgressBarLabel2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents DownloadURL As System.Windows.Forms.Label
+    Friend WithEvents LocalLocation As System.Windows.Forms.Label
+    Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

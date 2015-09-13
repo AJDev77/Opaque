@@ -110,5 +110,11 @@
     <Setting Name="currentpage" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://emposoft.com</Value>
     </Setting>
+    <Setting Name="DownloadURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloadLocalFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
