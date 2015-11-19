@@ -15,9 +15,13 @@ modification, are permitted provided that the following conditions are met:
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
   
-* The original developers of this software have the right to change this license
-  at will, without notification of parties using this. Any persons of organizations
-  using this software are responsible for checking this license for changes. 
+* This license is subject to change at any time, per the wishes of the members of the original
+  authors of this software. The authors have no obligation to inform other parties of the license
+  change. 
+
+* This software is subject to other agreements, including, but not limited to, privacy policies, end user license   
+  agreement (EULA), terms of service, etc. Those agreements do not affect this license, nor does this license
+  affect those agreements. 
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
