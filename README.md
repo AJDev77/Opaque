@@ -1,6 +1,6 @@
 Opaque
 ======
-Opaque: The best of the Internet in one package. And it's all for you. More information at http://opaquebrowser.com. 
+Opaque: The best of the Internet in one package. And it's all for you. 
 
 PROJECT STATUS: In development. 
 
